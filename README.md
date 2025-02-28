@@ -32,6 +32,5 @@ Example: ProductController, OrderController.
 
 How It Works Together:
 User Action → Controller → Model → View → User
------------------------------------ Java --------------------------------------------
 
 
