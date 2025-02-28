@@ -1,0 +1,43 @@
+@model List<amazonsa.Models.Product>
+
+<h2>Product List</h2>
+
+<form method="post" action="/Orders/Create" class="mb-3">
+    <label for="userId">Select User:</label>
+    <select name="userId" class="form-control" required>
+        <option value="">Select User</option>
+        <option value="1">osama</option>
+        <option value="2">abdallah</option>
+    </select>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Category</td>
+                <td>@product.Price</td>
+                <td>@product.StockQuantity</td>
+                <td>
+                    <form method="post" action="/Orders/Create">
+                        <input type="hidden" name="productId" value="@product.ProductID" />
+                        <input type="hidden" name="userId" value="2" /> 
+                        <input type="number" name="quantity" value="1" min="1" class="form-control" />
+                        <button type="submit" class="btn btn-primary">Buy Now</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
